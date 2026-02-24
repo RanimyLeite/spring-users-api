@@ -10,7 +10,7 @@ import java.util.UUID;
 @Table(name = "users")
 @Getter
 @Setter
-public class User {
+public class User extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -21,6 +21,9 @@ public class User {
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(length = 12)
+    private String phone;
 
     @Column(nullable = false)
     private String password;

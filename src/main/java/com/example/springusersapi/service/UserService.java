@@ -25,6 +25,7 @@ public class UserService {
         User user = new User();
         user.setName(request.name());
         user.setEmail(request.email());
+        user.setPhone(request.phone());
         user.setPassword(passwordEncoder.encode(request.password()));
 
         repository.save(user);
@@ -32,7 +33,8 @@ public class UserService {
         return new UserResponse(
                 user.getId(),
                 user.getName(),
-                user.getEmail()
+                user.getEmail(),
+                user.getPhone()
         );
     }
 }
